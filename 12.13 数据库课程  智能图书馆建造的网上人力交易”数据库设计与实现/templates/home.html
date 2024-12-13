@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能图书馆建造的网上人力交易系统</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; }
+        .container { width: 100%; max-width: 600px; margin: 50px auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #333; }
+        select, button { width: 100%; padding: 10px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>请选择您的角色</h1>
+    <form action="/register" method="POST">
+        <select name="role" required>
+            <option value="求职者">求职者</option>
+            <option value="招聘公司">招聘公司</option>
+            <option value="管理员">管理员</option>
+        </select>
+        <button type="submit">确认</button>
+    </form>
+</div>
+
+</body>
+</html>

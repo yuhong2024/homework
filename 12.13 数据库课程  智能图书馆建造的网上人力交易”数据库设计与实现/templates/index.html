@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能图书馆建造的网上人力交易平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>欢迎来到智能图书馆建造的网上人力交易平台</h1>
+        <h2>招聘职位</h2>
+        <div class="job-list">
+            {% for job in jobs %}
+                <div class="job-item">
+                    <h3>{{ job.title }}</h3>
+                    <p>{{ job.description }}</p>
+                    <a href="{{ url_for('apply', job_id=job.id) }}" class="apply-btn">申请该职位</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招聘公司页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; }
+        .container { width: 80%; max-width: 900px; margin: 50px auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; }
+        .job-list { list-style-type: none; padding: 0; }
+        .job-item { background-color: #f9f9f9; margin: 10px 0; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+        .add-job-btn { background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+        .add-job-btn:hover { background-color: #0056b3; }
+        input, textarea { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>招聘公司发布职位</h1>
+    <ul class="job-list">
+        {% for job in jobs %}
+            <li class="job-item">
+                <h3>{{ job.title }}</h3>
+                <p>{{ job.description }}</p>
+                <p>招聘人数：{{ job.number_of_positions }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>发布新职位</h2>
+    <form action="/add_job" method="POST">
+        <input type="text" name="title" placeholder="职位名称" required><br>
+        <textarea name="description" placeholder="职位描述" rows="4" required></textarea><br>
+        <input type="number" name="number_of_positions" placeholder="招聘人数" required><br>
+        <button class="add-job-btn" type="submit">发布职位</button>
+    </form>
+</div>
+
+</body>
+</html>

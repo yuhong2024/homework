@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传简历</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; }
+        .container { width: 80%; max-width: 900px; margin: 50px auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+        .submit-btn { background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>上传简历</h1>
+    <form action="/upload_resume" method="POST">
+        <input type="text" name="name" placeholder="姓名" required><br>
+        <input type="email" name="email" placeholder="邮箱" required><br>
+        <textarea name="education" placeholder="教育背景" rows="4" required></textarea><br>
+        <textarea name="experience" placeholder="工作经历" rows="4" required></textarea><br>
+        <button class="submit-btn" type="submit">提交简历</button>
+    </form>
+</div>
+
+</body>
+</html>

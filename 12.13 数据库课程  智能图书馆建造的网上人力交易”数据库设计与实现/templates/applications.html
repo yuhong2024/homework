@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看申请</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>所有职位申请</h1>
+        <div class="applications-list">
+            {% for application in applications %}
+                <div class="application-item">
+                    <h3>职位ID: {{ application.job_id }}</h3>
+                    <p>姓名: {{ application.name }}</p>
+                    <p>求职信: {{ application.cover_letter }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

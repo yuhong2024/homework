@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求职者页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; }
+        .container { width: 80%; max-width: 900px; margin: 50px auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; }
+        .job-list { list-style-type: none; padding: 0; }
+        .job-item { background-color: #f9f9f9; margin: 10px 0; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+        .apply-btn { background-color: #28a745; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+        .apply-btn:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>求职者职位列表</h1>
+    <ul class="job-list">
+        {% for job in jobs %}
+            <li class="job-item">
+                <h3>{{ job.title }}</h3>
+                <p>{{ job.description }}</p>
+                <form action="/apply" method="POST">
+                    <input type="hidden" name="job_id" value="{{ job.job_id }}">
+                    <input type="text" name="name" placeholder="请输入姓名" required><br>
+                    <input type="email" name="email" placeholder="请输入邮箱" required><br>
+                    <input type="text" name="phone" placeholder="请输入电话" required><br>
+                    <button class="apply-btn" type="submit">申请职位</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
